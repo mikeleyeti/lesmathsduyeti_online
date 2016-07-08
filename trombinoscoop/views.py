@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from datetime import datetime
 from django.http import HttpResponseRedirect
-from trombinoscoop.forms import LoginForm
+from trombinoscoop.forms import LoginForm, PersonneProfileForm
 
 # Create your views here.
 def welcome(request):
@@ -40,3 +40,16 @@ def login(request):
     else:
         form = LoginForm()
         return render_to_response('login.html', {'form': form})
+
+
+def register(request):
+    if len(request.GET)>0:
+        form = PersonneProfileForm(request.GET)
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect('/login')
+        else:
+            return render_to_response('login.html',{'form':form})
+    else:
+        form = PersonneProfileForm()
+        return render_to_response('user_profile.html', {'form':form})

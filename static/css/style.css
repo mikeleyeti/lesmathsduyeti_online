@@ -16,7 +16,16 @@ header {
   border-bottom: 1px solid #133783;
 }
 
-body#loginPage section#content {
+body#loginPage {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  width: 500px;
+  margin: 0 0 0 -250px;
+  padding: 0;
+}
+
+section#content {
   position: absolute;
   top: 150px;
   left: 50%;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" showNewOnSourceInSync="false">
+  <component name="PublishConfigData" showEqualInSync="true" showNewOnSourceInSync="false" showNewOnTargetInSync="false">
     <serverData>
       <paths name="LesMathsDuYeti">
         <serverdata>

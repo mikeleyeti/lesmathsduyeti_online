@@ -1,11 +1,14 @@
 from django.shortcuts import render_to_response
-from datetime import datetime
 from django.http import HttpResponseRedirect
+from django.utils import timezone
 from trombinoscoop.forms import LoginForm, PersonneProfileForm
 
 # Create your views here.
 def welcome(request):
-    return render_to_response('welcome.html', {'date_actuelle': datetime.now()})
+    return render_to_response('welcome.html', {'date_actuelle': timezone.now()})
+
+def index(request):
+    return render_to_response('index.html')
 
 # def login(request):
 #     # Test si formulaire a été envoyé

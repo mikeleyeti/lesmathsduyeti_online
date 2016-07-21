@@ -6,6 +6,60 @@
 
 {% block content %}
     <p> Salut le monde ! </p>
-    <p> Voici la date et l'heure de maintenant dans le présent : {{ date_actuelle }}</p>
+    <p> Voici la date et l'heure de maintenant dans le présent si tout va bien : {{ date_actuelle }}</p>
 
+    <h1>Essai de notations mathématiques</h1>
+    <h2>Utilisation de MathJax  </h2>
+    <p> $x^4+2x^2+1=(x^2+1)^2$</p>
+    <p> $x_1 = \frac{-b + \sqrt{\Delta}}{2a}$ et $x_2 = \frac{-b - \sqrt{\Delta}}{2a}$</p>
+    <h2>Utilisation de LaTeX2HTML5</h2>
+    <p>
+
+    <script type="tex/latex">\begin{pspicture}(-5,-5)(5,5)
+    \rput(0.3,3.75){ $Im$ }
+    \psline{->}(0,-3.75)(0,3.75)
+    \rput(3.75,0.3){ $Re$ }
+    \psline{->}(-3.75,0)(3.75,0)
+    \pscircle(0,0){ 3 }
+    \rput(2.3,1){$e^{i\omega}-\alpha$}
+    \userline[linewidth=1.5 pt]{->}(1.500,0.000)(2.121,2.121)
+    \userline[linewidth=1.5 pt,linecolor=blue]{->}(0,0.000)(2.121,2.121){(x>0) ? 3 * cos( atan(-y/x) ) : -3 * cos( atan(-y/x) ) }{ (x>0) ? -3 * sin( atan(-y/x) ) : 3 * sin( atan(-y/x) )}
+    \userline[linewidth=1.5 pt,linestyle=dashed](-1.500,0.000)(2.121,2.121){x}{0}{x}{y}
+    \userline[linewidth=1.5 pt,linestyle=dashed](-1.500,0.000)(2.121,2.121){0}{y}{x}{y}
+    \rput(-0.75,-4.25){$1+\alpha$}
+    \rput(2.25,-4.25){$1-\alpha$}
+    \psline{<->}(-3,-4)(1.5,-4)
+    \psline{<->}(1.5,-4)(3,-4)
+    \psline[linestyle=dashed](3,-4.5)(3,0)
+    \psline[linestyle=dashed](-3,-4.5)(-3,0)
+    \psline[linestyle=dashed](1.5,-4.5)(1.5,0)
+    \end{pspicture}}
+
+    \begin{pspicture}(-4,-3)(4,3)
+    \uservariable{alpha}(0,0){x}
+    \psplot[algebraic,linewidth=2pt,fillstyle=solid, fillcolor=lightblue]{-4}{alpha}{sin(x)}
+    \psplot[algebraic,linewidth=2pt]{-4}{4}{sin(x)}
+    \psline{->}(-4,0)(4,0)
+    \end{pspicture}
+
+    \begin{pspicture}(-3.5,-1)(3.75,3.5)
+    \slider{1}{8}{n}{$N$}{4}
+    \psplot[algebraic,linewidth=1.5pt,plotpoints=1000]{-3.14}{3.14}{cos(n*x/2)+1.3}
+    \psaxes[showorigin=false,labels=none, Dx=1.62](0,0)(-3.25,0)(3.25,2.5)
+    \psline[linestyle=dashed](-3.14,0.3)(3.14,0.3)
+    \psline[linestyle=dashed](-3.14,2.3)(3.14,2.3)
+    \rput(3.6,2.3){$\frac{1}{1-\alpha}$}
+    \rput(3.6,0.3){$\frac{1}{1+\alpha}$}
+    \rput(3.14, -0.35){$\pi$}
+    \rput(1.62, -0.35){$\pi/2$}
+    \rput(-1.62, -0.35){$-\pi/2$}
+    \rput(-3.14, -0.35){$-\pi$}
+    \rput(0, -0.35){$0$}
+    \end{pspicture}
+
+    </script>
+    <script>
+    $('body').latex();
+     </script>
+    </p>
 {% endblock %}

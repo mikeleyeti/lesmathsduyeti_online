@@ -4,6 +4,16 @@
   <head>
     <title>Trombinoscoop – {% block title %}Bienvenue{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab" type="text/css">
+    <link rel="stylesheet" href="/static/css/latex2html5.css">
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/javascript" src="/static/js/latex2html5.min.js"></script>
+
   </head>
   <body id="{% block bodyId %}genericPage{% endblock %}">
     <header>

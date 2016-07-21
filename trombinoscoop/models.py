@@ -13,3 +13,6 @@ class Personne(models.Model):
     mot_de_passe = models.CharField(max_length=32)
 
 
+class Person(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)

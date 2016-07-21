@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from trombinoscoop.views import welcome,login,register
+from trombinoscoop.views import welcome,login,register,index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^welcome/', welcome),
     url(r'^login/', login),
-    # url(r'^register/', register),
+    url(r'^register/', register),
+    url(r'^', index)
 ]

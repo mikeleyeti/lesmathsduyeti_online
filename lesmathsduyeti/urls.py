@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^welcome/', welcome),
     url(r'^login/', login),
     url(r'^register/', register),
-    url(r'^', index)
+    # url(r'^', index) # Pour tester Bootstrap
 ]

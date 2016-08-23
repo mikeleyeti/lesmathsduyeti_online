@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from trombinoscoop.views import welcome,login,register,index
-from Interrogator.views import interrogator
+from Interrogator.views import interrogator, bilan, interrogator_accueil, nouvelle_note
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,5 +24,9 @@ urlpatterns = [
     url(r'^login/', login),
     url(r'^register/', register),
     # url(r'^', index), # Pour tester Bootstrap
-    url(r'^Interrogator/(?P<classe>[0-9])/$', interrogator),
+    url(r'^Interrogator/$', interrogator_accueil, name='Interrogator_accueil'),
+    url(r'^Interrogator/(?P<classe>[0-9])/$', interrogator, name='Interrogator'),
+    url(r'^Interrogator/bilan/$', bilan, name='Interrogator_bilan'),
+    url(r'^Interrogator/nouvelle_note/(?P<classe>[0-9])/(?P<id_eleve>[0-9])$', nouvelle_note,
+        name='Interrogator_nouvelle_note'),
 ]

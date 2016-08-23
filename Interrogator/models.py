@@ -6,6 +6,8 @@ class Classe(models.Model):
     def __str__(self):
         return "Classe de " + self.niveau + " " + self.nom
 
+    def affichage(self):
+        return "Classe de " + self.niveau + " " + self.nom
     niveaux = (
         ('6', 'Sixième'),
         ('5', 'Cinquième'),
@@ -16,12 +18,21 @@ class Classe(models.Model):
     nom = models.CharField(max_length=30)
 
 
+
 class Eleve(models.Model):
     def __str__(self):
         return self.nom.upper() + " " + self.prenom.capitalize()
 
     def affichage(self):
         return self.nom.upper() + " " + self.prenom.capitalize()
+
+    def ajouter_un_point(self):
+        self.note -= 1
+        self.save()
+
+    def enlever_un_point(self):
+        self.note -= 1
+        self.save()
 
     classe = models.ForeignKey(Classe)
     nom = models.CharField(max_length=30)

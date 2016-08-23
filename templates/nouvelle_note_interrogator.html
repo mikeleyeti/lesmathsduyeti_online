@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle Note :</title>
+</head>
+<body>
+<h1>Elève : {{ eleve_designe }}</h1>
+
+<h2> Classe : {{ nom_de_la_classe }}</h2>
+
+Evolution de la note : {{ evolution_note }}
+
+<h1>Nouvelle note : {{ nouvelle_note }} </h1>
+
+<h3>Bilan de la classe.</h3>
+
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Note</th>
+        <th>Nombre d'intérro</th>
+    </tr>
+    <tr>
+        <th>{{ objet_eleve_designe.nom.upper }}</th>
+        <th>{{ objet_eleve_designe.prenom.capitalize }}</th>
+        <th>{{ objet_eleve_designe.note }}</th>
+        <th>{{ objet_eleve_designe.nombre_d_interrogation_orale }}</th>
+    </tr>
+    {% for eleve in eleves_classe_choisie %}
+        <tr>
+            <th> {{ eleve.nom.upper }}</th>
+            <th> {{ eleve.prenom.capitalize }}</th>
+            <th> {{ eleve.note }}</th>
+            <th> {{ eleve.nombre_d_interrogation_orale }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<input type="button" value="Retour vers l'accueil" onclick="location.href={% url 'Interrogator_accueil' %}"/>
+
+
+</body>
+</html>

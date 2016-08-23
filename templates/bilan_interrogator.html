@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bilan de notes</title>
+</head>
+<body>
+<h1>Bilan des notes</h1>
+
+{#{% if envoi %}La classe choisie est : {{ classe_choisie }}{% endif %}#}
+
+<form action="{% url "Interrogator.views.bilan" %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Afficher"/>
+</form>
+
+
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Note</th>
+        <th>Nombre d'intérro</th>
+    </tr>
+    {% for eleve in eleves_classe_choisie %}
+        <tr>
+            <th> {{ eleve.nom.upper }}</th>
+            <th> {{ eleve.prenom.capitalize }}</th>
+            <th> {{ eleve.note }}</th>
+            <th> {{ eleve.nombre_d_interrogation_orale }}</th>
+        </tr>
+    {% endfor %}
+</table>
+
+<input type="button" value="Retour vers l'accueil" onclick="location.href={% url 'Interrogator_accueil' %}"/>
+
+</body>
+</html>

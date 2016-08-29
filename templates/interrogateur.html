@@ -41,15 +41,15 @@ L'élève désigné par le tirage aléatoire est <h3 align="center"> {{ eleve_de
 <p align="center">Note actuelle :
 <h3 align="center"> {{ note }}</h3></p>
 
-<form action="{% url "Interrogator_nouvelle_note" id_de_la_classe nombre_aleatoire %}" method="post">
+<form action="{% url "Interrogateur_nouvelle_note" id_de_la_classe nombre_aleatoire %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Afficher"/>
 </form>
 
-<a href="{% url 'Interrogator_bilan' %}">Afficher le bilan</a>
+<a href="{% url 'Interrogateur_bilan' %}">Afficher le bilan</a>
 
-<a href="{% url 'Interrogator_accueil' %}">Retourner à l'accueil</a>
+<a href="{% url 'Interrogateur_accueil' %}">Retourner à l'accueil</a>
 
 {#<input type="button" value="Retour vers l'accueil" onclick="javascript:location.href={% url 'Interrogator_accueil' %}" />#}
 

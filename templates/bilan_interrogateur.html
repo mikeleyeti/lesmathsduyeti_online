@@ -9,7 +9,7 @@
 
 {#{% if envoi %}La classe choisie est : {{ classe_choisie }}{% endif %}#}
 
-<form action="{% url "Interrogator.views.bilan" %}" method="post">
+<form action="{% url "interrogateur.views.bilan" %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Afficher"/>
@@ -33,7 +33,7 @@
     {% endfor %}
 </table>
 
-<input type="button" value="Retour vers l'accueil" onclick="location.href={% url 'Interrogator_accueil' %}"/>
+<input type="button" value="Retour vers l'accueil" onclick="location.href={% url 'Interrogateur_accueil' %}"/>
 
 </body>
 </html>

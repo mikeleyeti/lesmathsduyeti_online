@@ -16,17 +16,20 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from trombinoscoop.views import welcome,login,register,index
-from Interrogator.views import interrogator, bilan, interrogator_accueil, nouvelle_note
+from interrogateur.views import interrogateur, bilan, interrogateur_accueil, nouvelle_note, deconnexion
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^welcome/', welcome),
-    url(r'^login/', login),
     url(r'^register/', register),
     # url(r'^', index), # Pour tester Bootstrap
-    url(r'^Interrogator/$', interrogator_accueil, name='Interrogator_accueil'),
-    url(r'^Interrogator/(?P<classe>[0-9])/$', interrogator, name='Interrogator'),
-    url(r'^Interrogator/bilan/$', bilan, name='Interrogator_bilan'),
-    url(r'^Interrogator/nouvelle_note/(?P<classe>[0-9])/(?P<id_eleve>[0-9])$', nouvelle_note,
-        name='Interrogator_nouvelle_note'),
+    url(r'^interrogateur/$', interrogateur_accueil, name='Interrogateur_accueil'),
+    url(r'^interrogateur/(?P<classe>[0-9])/$', interrogateur, name='interrogateur'),
+    url(r'^interrogateur/bilan/$', bilan, name='Interrogateur_bilan'),
+    url(r'^interrogateur/nouvelle_note/(?P<classe>[0-9])/(?P<id_eleve>[0-9])$', nouvelle_note,
+        name='Interrogateur_nouvelle_note'),
+    # url(r'^interrogateur/login/$', connexion, name='connexion'),
+    url(r'^connexion/$', auth_views.login, {'template_name': 'interrogateur_login.html'}, name='connexion'),
+    url(r'^deconnexion$', deconnexion, name='deconnexion'),
 ]

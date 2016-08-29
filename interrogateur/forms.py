@@ -1,5 +1,5 @@
 from django import forms
-from Interrogator.models import Classe
+from interrogateur.models import Classe
 
 
 # Données de test pour afficher un formulaire CHOICES
@@ -33,3 +33,8 @@ class Changement_de_note(forms.Form):
     eleve = 'nelly'
 
     # classe_field = forms.ChoiceField(choices=MY_CHOICES)
+
+
+class ConnexionForm(forms.Form):
+    username = forms.CharField(label="Nom d'utilisateur", max_length=30)
+    password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput)

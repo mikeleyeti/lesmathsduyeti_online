@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Calculator',
     'trombinoscoop',
-    'Interrogator',
+    'interrogateur',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -139,3 +139,6 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 # STATIC_ROOT = "/var/www/example.com/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "collect_static")
+
+# URL de redirection si utlisateur non connecté
+LOGIN_URL = '/connexion/'

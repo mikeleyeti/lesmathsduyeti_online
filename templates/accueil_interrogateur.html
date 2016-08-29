@@ -5,7 +5,7 @@
     <title>Accueil de Intrrogator.</title>
 </head>
 <body>
-<form action="{% url "Interrogator.views.interrogator_accueil" %}" method="post">
+<form action="{% url "interrogateur.views.interrogateur_accueil" %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Envoyer"/>
